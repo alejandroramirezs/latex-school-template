@@ -1,0 +1,113 @@
+% school-document-template.tex - A open source template written in LaTeX for your school/college professional and formal texts.
+% Copyright (C) <2023>  <Alejandro Ramírez Sánchez>
+
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+%--------------------ESTA PLANTILLA HA SIDO REALIZADA POR ALEJANDRO RAMÍREZ SÁNCHEZ--------------------
+% SE PUEDE USAR CON LOS FINES QUE QUIERAS Y SE PUEDE DISTRIBUIR LIBREMENTE BAJO LA LICENCIA GPLv3.
+
+
+%--------CLASE DE DOCUMENTO--------
+\documentclass[a4paper, spanish, 11pt]{article} % Tipo de documento: Artículo con tamaño de letra por defecto en 11, en folio a4 y en español.
+
+
+%--------PAQUETES A UTILIZAR--------
+% PUEDES INTRODUCIR TANTOS PAQUETES COMO QUIERAS, PERO HAZLO DENTRO DE LOS DELIMITADORES PARA MANTENER EL ORDEN EN EL ARCHIVO.
+\usepackage[utf8]{inputenc} % Para usar codificación UTF-8.
+\usepackage[spanish]{babel} % Para usar idioma español. Modifique o añada más idiomas para usar en el primer campo dentro de [].
+\usepackage{a4} % Para usar tipo de folio a4.
+\usepackage{graphicx} % Para incluir imágenes.
+\usepackage[margin=2cm, top=2cm, includefoot]{geometry} % Edita los parámetros dentro de [] para modificar la geometría del documento.
+\usepackage{mdframed} % Para encapsular texto dentro de cuadros. Puedes usar otros paquetes si necesitas algo más complejo.
+\usepackage{hyperref} % Para crear hipervínculos. Ejemplo: Link a YouTube: \href{https://youtube.com}{Link a YouTube} <-- Esto hace que el texto "Link a YouTube" tenga un hipervínculo encima.
+\usepackage{ragged2e} % Para justificar texto. Es algo más específico su uso, no es tan necesario usarlo.
+\usepackage{fancyhdr} % Para gestionar y usar encabezados y pies de página personalizados.
+\usepackage{lipsum} % Para generar lorem ipsum de manera autmática. Método: \lipsum.
+
+
+%--------COMANDOS PERSONALIZADOS--------
+% PUEDES INTRODUCIR TANTOS COMANDOS PERSONALIZADOS COMO QUIERAS, PERO HAZLO DENTRO DE LOS DELIMITADORES PARA MANTENER EL ORDEN EN EL ARCHIVO.
+\newcommand{\autor}{Autor-del-documento} % Autor del documento.
+\newcommand{\fecha}{\today} % Fecha que quieras ponerle al documento. Por defecto: Fecha actual/Fecha de última compilación.
+\newcommand{\titulo}{titulo-de-tu-documento} % Título de tu documento.
+\newcommand{\nombredecurso}{nombre-del-curso} % Nombre del curso.
+\newcommand{\numerodecurso}{número-de-tu-curso} % Número de tu curso. Ejemplo: 1º, 2º, 3º, 4º, etc.
+\newcommand{\siglascurso}{siglas-del-curso} % Siglas del curso.
+\newcommand{\curso}{\numerodecurso\ \nombredecurso} % Nombre de curso completo sin siglas
+\newcommand{\cursoconsiglas}{\numerodecurso\ \siglascurso} % Nombre de curso completo en siglas.
+\newcommand{\asignatura}{nombre-de-la-asignatura} % Nombre de la asignatura de su trabajo.
+\newcommand{\fotoportada}{ruta-de-la-imagen} % Ruta de la imagen de la portada. Modifique el segundo campo dentro de {} para modificarla automáticamente.
+\newcommand{\centroeducativo}{nombre-del-centro-educativo} % Nombre del centro educativo.
+
+
+%--------COMANDOS RENOVADOS/MODIFICADOS--------
+% PUEDES INTRODUCIR TANTOS COMANDOS RENOVADOS COMO QUIERAS, PERO HAZLO DENTRO DE LOS DELIMITADORES PARA MANTENER EL ORDEN EN EL ARCHIVO.
+
+
+%--------RUTA POR DEFECTO DE LAS IMÁGENES--------
+\graphicspath{{ruta-de-las-imagenes}} % Si quieres puedes usar una ruta de imágenes por defecto para no tener que escribir la ruta entera de una imagen cada vez que quieras insertar una. Si no lo vas a usar, no descomentes.
+%--------DEFINICIÓN DE ENCABEZADOS Y PIES DE PÁGINA--------
+% Aquí están los parámetros para el encabezado y pie de página.
+% Puede modificarlos si desea. Aviso: SÓLO FUNCIONAN A PARTIR DEL
+% INICIO DE PÁGINAS DE CONTENIDO.
+\lhead{\textit{\autor}}
+\rhead{\curso}
+\lfoot{\underline{\textit{\centroeducativo}}}
+\cfoot{\thepage}
+\rfoot[]{\fecha}
+
+
+%--------INICIO DEL DOCUMENTO--------
+\begin{document}
+    %--------INICIO PORTADA--------
+    \begin{titlepage}
+        \begin{center}
+        {\Huge{\textbf{\titulo}}}
+        \vfill
+        %--------DESCOMENTE LA LÍNEA A CONTINUACIÓN PARA INCLUIR LA PORTADA--------
+        %\includegraphics[width=\textwidth,keepaspectratio]{\fotoportada}
+        \vfill
+        \par\vspace{1cm}
+        {\huge{\textbf{\fecha}}}
+        \end{center}
+        \vfill
+        {\Large{\textit{Realizado por: \textbf{\autor}}}}
+        \\\\
+        {\Large{\textit{Curso: \textbf{\cursoconsiglas}}}}
+        \\\\
+        {\Large{\textit{Asignatura: \textbf{\asignatura}}}}
+    \end{titlepage}
+    %--------FIN PORTADA--------
+    \clearpage
+    %--------INICIO PÁGINA ÍNDICE--------
+    \pagenumbering{gobble}
+    \tableofcontents
+    %--------FIN PÁGINA ÍNDICE--------
+    \clearpage
+    %--------INICIO PÁGINAS DE CONTENIDO--------
+    % Introduce aquí tus secciones, párrafos, imágenes, etc.
+    \pagestyle{fancy} % No es recomendable modificar esta línea. Esta línea establece el estilo de las páginas de contenido del documento mediante el uso del paquete "fancyhdr".
+    \pagenumbering{arabic}
+    %--------EMPIEZA A ESCRIBIR AQUÍ--------
+    
+    %--------FIN PÁGINAS DE CONTENIDO--------
+\end{document}
+
+% This program is free software: you can redistribute it and/or modify it under the terms of the 
+% GNU General Public License as published by the Free Software Foundation, either version 3 of the License, 
+% or (at your option) any later version. This program is distributed in the hope that it will be useful, 
+% but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+% PURPOSE. See the GNU General Public License for more details. You should have received a copy of the 
+% GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
